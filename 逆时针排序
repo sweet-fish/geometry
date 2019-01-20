@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+const double eps=1e-10;
+struct point
+{
+    double x,y;
+}p[100005];
+bool cmp(const point &a,const point &b)
+{
+    return (a.x-p[0].x)*(b.y-p[0].y)-(a.y-p[0].y)*(b.x-p[0].x)>=eps;
+}
+int main()
+{
+    int n=0;
+    while(cin>>p[n].x>>p[n].y)
+        ++n;
+    sort(p+1,p+n,cmp);
+    for(int i=0;i<n;++i)
+        cout<<'('<<p[i].x<<','<<p[i].y<<')'<<endl;
+        cout<<cmp(p[1],p[2])<<endl;
+}
