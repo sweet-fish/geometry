@@ -5,10 +5,18 @@ const double eps=1e-10;
 struct point
 {
     double x,y;
+    point operator - (const point &t)const
+    {
+        return {x-t.x,y-t.y};
+    }
 }p[100005];
+double cross(point a,point b)
+{
+    return a.x*b.y-a.y*b.x;
+}
 bool cmp(const point &a,const point &b)
 {
-    return (a.x-p[0].x)*(b.y-p[0].y)-(a.y-p[0].y)*(b.x-p[0].x)>=eps;
+    return cross(a-p[0],b-p[0])>=eps;
 }
 int main()
 {
@@ -18,5 +26,4 @@ int main()
     sort(p+1,p+n,cmp);
     for(int i=0;i<n;++i)
         cout<<'('<<p[i].x<<','<<p[i].y<<')'<<endl;
-        cout<<cmp(p[1],p[2])<<endl;
 }
