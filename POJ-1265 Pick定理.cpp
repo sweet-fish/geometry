@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+
 const double eps=1e-10;
 struct point
 {
@@ -43,7 +44,7 @@ int main()
         s=0.5*fabs(s);
         int a=s-0.5*b+1;
         cout<<a<<' '<<b<<' '<<s<<endl;
-            if(t!=_)
-        cout<<endl;
+        if(t!=_)
+            cout<<endl;
     }
 }
