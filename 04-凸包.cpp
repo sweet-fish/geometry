@@ -10,7 +10,6 @@ struct point
     }
 };
 point p[100005],a[100005];
-
 double dist2(point a,point b)
 {
     return (a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y);
