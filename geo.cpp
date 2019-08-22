@@ -59,18 +59,18 @@ struct point
         return dcmp(x-t.x)==0&&dcmp(y-t.y)==0;
     }
     //斜率无穷大到到无穷小
-    bool operator<(const point &t)const
+    /*bool operator<(const point &t)const
     {
         if(quad()==t.quad())
             return dcmp(*this^t)==-1;
         return quad()<t.quad();
-    }
-    /*bool operator<(const point &t)const
+    }*/
+    bool operator<(const point &t)const
     {
         if(dcmp(x-t.x)==0)
             return y<t.y;
         return x<t.x;
-    }*/
+    }
 }p[1005];
 
 struct line
@@ -130,7 +130,7 @@ struct line
     double dis(const line &t)const
     {
         point p1=ins(t);
-        if(dcmp(dis(p1-t.a)+dis(p1-t.b)-dis(t,a-t.b))==0)
+        if(dcmp((p1-t.a).len()+(p1-t.b).len()-(t,a-t.b).len())==0)
             return 0;
         double ans=1e15;
         ans=min(ans,dis(t.a));
